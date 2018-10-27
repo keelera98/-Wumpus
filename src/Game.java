@@ -12,7 +12,8 @@ public class Game implements Runnable{
     private String title;
     private Handler handler;
     private KeyManager keyManager;
-
+    private GameCamera gameCamera;
+    
     private State gameState;
     //private State menuState;
     //private State settingState;
@@ -28,6 +29,7 @@ public class Game implements Runnable{
     }
 
     public void init(){
+        gameCamera = new GameCamera(this, 0, 0);
         display = new Display(title, width, height);
         display.getFrame().addKeyListener(keyManager);
         handler = new Handler(this);
@@ -123,7 +125,10 @@ public class Game implements Runnable{
             }catch(Exception e){}
         }
     }
-
+    public GameCamera getGameCamera()
+    {
+        return gameCamera;
+    }
     public int getWidth(){
         return width;
     }
