@@ -7,7 +7,9 @@ public class Asset {
 
     public static void init(){
         Sprite Monster = new Sprite(ImageLoader.loadImage("/creatures/monster.png"));
+        Sprite Player = new Sprite(ImageLoader.loadImage("/creatures/donald.jpg"));
 
         monster = Monster.crop(0, 0, width, height);
+        player = Player.crop(0, 0, 32, 45);
     }
 }

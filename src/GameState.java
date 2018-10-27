@@ -17,18 +17,19 @@ public class GameState extends State
         //handler.setWorld(world);
         //Places the player
         monster = new Monster(handler, 100, 100);
+        player = new Player(handler, 10, 10);
     }
 
     public void update()
     {
         //world.update();
-        //player.update();
+        player.update();
     }
 
     public void render(Graphics g)
     {
         //world.render(g);
         monster.render(g);
-        //player.render(g);
+        player.render(g);
     }
 }

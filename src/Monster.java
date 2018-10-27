@@ -11,6 +11,6 @@ public class Monster extends Creature{
     }
 
     public void render(Graphics g){
-        g.drawImage(Asset.monster, x, y, null);
+        g.drawImage(Asset.monster, x, y, width, height, null);
     }
 }
