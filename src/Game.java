@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 
 public class Game implements Runnable{
@@ -23,12 +24,12 @@ public class Game implements Runnable{
         this.width = width;
         this.height = height;
         this.title = title;
-
+        keyManager = new KeyManager();
     }
 
     public void init(){
         display = new Display(title, width, height);
-
+        display.getFrame().addKeyListener(keyManager);
         handler = new Handler(this);
 
         Asset.init();
@@ -41,7 +42,7 @@ public class Game implements Runnable{
     }
 
     public void update(){
-
+        keyManager.update();
         if(State.getCurrentState() != null){
             State.getCurrentState().update();
         }

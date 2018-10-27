@@ -20,22 +20,21 @@ public class Player extends Creature{
 
         if(handler.getKeyManager().up){
             //sets the ymove to move up
-            ymove = ymove--;
+            ymove -= 32;
         }
         if(handler.getKeyManager().down){
-            ymove = ymove++;
+            ymove += 32;
         }
         if(handler.getKeyManager().left){
-            xmove = xmove--;
+            xmove -= 32;
         }
         if(handler.getKeyManager().right){
-            xmove = xmove++;
+            xmove += 32;
         }
 
     }
 
     public void render(Graphics g){
-
-        //g.drawImage();
+        g.drawImage(Asset.player, x, y, width, height, null);
     }
 }
