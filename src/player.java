@@ -1,9 +1,10 @@
 public class player extends Creature
 {
-    private int weapon;
+    private Weapon playerWeapon;
 
-    public player(Handler handler, int x, int y, int weapon){
+    public player(Handler handler, int x, int y, Weapon playerWeapon){
         super(handler, x, y, Creature.DEFUALT_CREATURE_WIDTH, Creature.DEFUALT_CREATURE_HEIGHT);
+        this.playerWeapon = playerWeapon;
     }
 
     public void update()
