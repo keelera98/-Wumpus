@@ -1,5 +1,6 @@
-public abstract class Creature extends Entity {
+import java.awt.*;
 
+public class Creature extends Entity{
     //makes a health that can't be changed
     public static final int DEFAULT_HEALTH = 3;
     //defaults what size the creature is
@@ -12,7 +13,6 @@ public abstract class Creature extends Entity {
 
     protected int xmove, ymove;
 
-
     public Creature(Handler handler, int x, int y, int width, int height){
         //passes the x and y to the parent class constructor
         super(handler, x, y, width, height);
@@ -24,6 +24,14 @@ public abstract class Creature extends Entity {
     public void move(){
         x += xmove;
         y += ymove;
+    }
+
+    public void update(){
+
+    }
+
+    public void render(Graphics g){
+
     }
 
     //GETTERS AND SETTERS

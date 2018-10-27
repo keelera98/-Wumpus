@@ -1,8 +1,6 @@
-package com.company;
 import java.awt.*;
 
 public abstract class Entity {
-
     //protected  variables are private but extended classes can still use them
     protected int x;
     protected int y;

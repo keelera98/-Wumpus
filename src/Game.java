@@ -31,10 +31,13 @@ public class Game implements Runnable{
 
         handler = new Handler(this);
 
+        Asset.init();
         //temp
         monster = new Monster(handler, 0, 0);
 
         gameState = new GameState(handler);
+
+        State.setCurrentState(gameState);
     }
 
     public void update(){
