@@ -10,27 +10,38 @@ public class Game implements Runnable{
     private int width, height;
     private String title;
     private Handler handler;
-
     private KeyManager keyManager;
+
+    private State gameState;
+    //private State menuState;
+    //private State settingState;
+
+    //TEMP
+    Monster monster;
 
     public Game(String title, int width, int height){
         this.width = width;
         this.height = height;
         this.title = title;
-        keyManager = new KeyManager();
+
     }
 
     public void init(){
         display = new Display(title, width, height);
 
-        display.getFrame().addKeyListener(keyManager);
-
         handler = new Handler(this);
+
+        //temp
+        monster = new Monster(handler, 0, 0);
+
+        gameState = new GameState(handler);
     }
 
-    //Master update
     public void update(){
-        keyManager.update();
+
+        if(State.getCurrentState() != null){
+            State.getCurrentState().update();
+        }
     }
 
     public void render(){
@@ -44,6 +55,10 @@ public class Game implements Runnable{
         g = bs.getDrawGraphics();
 
         g.clearRect(0, 0, width, height);
+
+        if(State.getCurrentState() != null){
+            State.getCurrentState().render(g);
+        }
 
         bs.show();
         g.dispose();
@@ -88,12 +103,6 @@ public class Game implements Runnable{
         stop();
     }
 
-    //allows player to access the keymanager
-    public KeyManager getKeyManager()
-    {
-        return keyManager;
-    }
-
     public synchronized void start(){
         if(!running){
             running = true;
@@ -117,6 +126,10 @@ public class Game implements Runnable{
 
     public int getHeight(){
         return height;
+    }
+
+    public KeyManager getKeyManager(){
+        return keyManager;
     }
 
 }
