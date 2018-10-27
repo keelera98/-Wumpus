@@ -11,20 +11,26 @@ public class Game implements Runnable{
     private String title;
     private Handler handler;
 
+    private KeyManager keyManager;
+
     public Game(String title, int width, int height){
         this.width = width;
         this.height = height;
         this.title = title;
+        keyManager = new KeyManager();
     }
 
     public void init(){
         display = new Display(title, width, height);
 
+        display.getFrame().addKeyListener(keyManager);
+
         handler = new Handler(this);
     }
 
+    //Master update
     public void update(){
-
+        keyManager.update();
     }
 
     public void render(){
@@ -80,6 +86,12 @@ public class Game implements Runnable{
         }
 
         stop();
+    }
+
+    //allows player to access the keymanager
+    public KeyManager getKeyManager()
+    {
+        return keyManager;
     }
 
     public synchronized void start(){
