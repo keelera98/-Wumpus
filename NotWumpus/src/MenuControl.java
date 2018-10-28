@@ -4,6 +4,11 @@ import java.awt.event.KeyEvent;
 public class MenuControl {
 
     private boolean[] bool;
+
+    public void setBool(int index, boolean bo) {
+        this.bool[index] = bo;
+    }
+
     Handler handler;
     public MenuControl(Handler handler)
     {
@@ -43,12 +48,16 @@ public class MenuControl {
         g.setColor(Color.black);
         g.setFont(new Font("TimesRoman", Font.BOLD, 20));
         if(bool[0])
-            g.drawString("Up", 1020, 670);
+            g.drawString("Up", 1004, 670);
         if(bool[1])
-            g.drawString("Down", 1020, 670);
+            g.drawString("Down", 988, 670);
         if(bool[2])
-            g.drawString("Left", 1020, 670);
+            g.drawString("Left", 998, 670);
         if(bool[3])
-            g.drawString("Right", 1020, 670);
+            g.drawString("Right", 988, 670);
+    }
+
+    public boolean getBool(int index) {
+        return bool[index];
     }
 }

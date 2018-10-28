@@ -3,7 +3,7 @@ import java.awt.event.KeyListener;
 
 public class KeyManager implements KeyListener{
     private boolean[] keys;
-    public boolean up, down, left, right;
+    public boolean up, down, left, right, enter;
 
     public KeyManager()
     {
@@ -18,6 +18,7 @@ public class KeyManager implements KeyListener{
         right = keys[KeyEvent.VK_D];
         left = keys[KeyEvent.VK_A];
         down = keys[KeyEvent.VK_S];
+        enter = keys[KeyEvent.VK_ENTER];
     }
 
     public boolean getKeys(int index)
