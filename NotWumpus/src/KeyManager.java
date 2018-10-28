@@ -20,6 +20,11 @@ public class KeyManager implements KeyListener{
         down = keys[KeyEvent.VK_S];
     }
 
+    public boolean getKeys(int index)
+    {
+        return keys[index];
+    }
+
     //called when user pressed a key
     public void keyPressed(KeyEvent e)
     {
