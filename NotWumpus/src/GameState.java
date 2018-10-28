@@ -30,5 +30,18 @@ public class GameState extends State
         world.render(g);
         monster.render(g);
         player.render(g);
+
+        //Menu Stuff
+        g.drawImage(Asset.tMenu1, 900, 618, null);
+
+        //
+        int fontSize = 20;
+        g.setFont(new Font("TimesRoman", Font.BOLD, fontSize));
+        g.setColor(Color.white);
+        g.drawString("Move Direction", 975, 640);
+
+        //
+        g.setColor(Color.black);
+        g.drawString("End Turn", 1005, 730);
     }
 }
